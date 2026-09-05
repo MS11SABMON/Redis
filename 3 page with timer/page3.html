@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-card">
+
+    <div class="form-header">
+
+        <div class="page-number">
+            STEP 03
+        </div>
+
+        <h1>Final Details</h1>
+
+        <p>
+            Almost done! Tell us about your interests.
+        </p>
+
+    </div>
+
+
+    <form method="POST">
+
+        <div class="input-group">
+
+            <label>Area of Interest</label>
+
+            <select name="interest" required>
+
+                <option value="">
+                    Select an area
+                </option>
+
+                <option value="Artificial Intelligence">
+                    Artificial Intelligence
+                </option>
+
+                <option value="Machine Learning">
+                    Machine Learning
+                </option>
+
+                <option value="Data Science">
+                    Data Science
+                </option>
+
+                <option value="Web Development">
+                    Web Development
+                </option>
+
+                <option value="Cloud Computing">
+                    Cloud Computing
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>Experience Level</label>
+
+            <select name="experience" required>
+
+                <option value="">
+                    Select experience
+                </option>
+
+                <option value="Beginner">
+                    Beginner
+                </option>
+
+                <option value="Intermediate">
+                    Intermediate
+                </option>
+
+                <option value="Advanced">
+                    Advanced
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>Additional Message</label>
+
+            <textarea
+                name="message"
+                placeholder="Tell us something..."
+                rows="4"
+            ></textarea>
+
+        </div>
+
+
+        <button type="submit">
+
+            Submit Form
+
+            <span>✓</span>
+
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-card">
+
+    <div class="form-header">
+
+        <div class="page-number">
+            STEP 02
+        </div>
+
+        <h1>Education Details</h1>
+
+        <p>
+            Tell us a little about your educational background.
+        </p>
+
+    </div>
+
+
+    <form method="POST">
+
+        <div class="input-group">
+
+            <label>College / University</label>
+
+            <input
+                type="text"
+                name="college"
+                placeholder="Enter college name"
+                required
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>Course</label>
+
+            <input
+                type="text"
+                name="course"
+                placeholder="e.g. B.Tech Artificial Intelligence"
+                required
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>Year of Study</label>
+
+            <select name="year" required>
+
+                <option value="">
+                    Select your year
+                </option>
+
+                <option value="1st Year">
+                    1st Year
+                </option>
+
+                <option value="2nd Year">
+                    2nd Year
+                </option>
+
+                <option value="3rd Year">
+                    3rd Year
+                </option>
+
+                <option value="4th Year">
+                    4th Year
+                </option>
+
+                <option value="Graduate">
+                    Graduate
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button type="submit">
+
+            Continue
+
+            <span>→</span>
+
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

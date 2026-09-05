@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="success-card">
+<div class="success-icon">
+    ✓
+</div>
+
+<h1>Form Completed!</h1>
+
+<div class="session-id">
+    <span>Session ID</span>
+    <strong>{{ session_id }}</strong>
+</div>
+
+<p>
+    Your information was successfully captured
+    using Redis session storage.
+</p>
+        Your information was successfully captured
+        using Redis session storage.
+    </p>
+
+
+    <div class="data-box">
+
+        <h2>Captured Data</h2>
+
+
+        <div class="data-row">
+
+            <span>Name</span>
+
+            <strong>
+                {{ data.name }}
+            </strong>
+
+        </div>
+
+
+        <div class="data-row">
+
+            <span>Email</span>
+
+            <strong>
+                {{ data.email }}
+            </strong>
+
+        </div>
+
+
+        <div class="data-row">
+
+            <span>Phone</span>
+
+            <strong>
+                {{ data.phone }}
+            </strong>
+
+        </div>
+
+
+        <div class="data-row">
+
+            <span>College</span>
+
+            <strong>
+                {{ data.college }}
+            </strong>
+
+        </div>
+
+
+        <div class="data-row">
+
+            <span>Course</span>
+
+            <strong>
+                {{ data.course }}
+            </strong>
+
+        </div>
+
+
+        <div class="data-row">
+
+            <span>Year</span>
+
+            <strong>
+                {{ data.year }}
+            </strong>
+
+        </div>
+
+
+        <div class="data-row">
+
+            <span>Interest</span>
+
+            <strong>
+                {{ data.interest }}
+            </strong>
+
+        </div>
+
+
+        <div class="data-row">
+
+            <span>Experience</span>
+
+            <strong>
+                {{ data.experience }}
+            </strong>
+
+        </div>
+
+
+        <div class="data-row">
+
+            <span>Message</span>
+
+            <strong>
+                {{ data.message }}
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="logs-box">
+
+        <h2>Session Logs</h2>
+
+        {% for log in logs %}
+
+        <div class="log">
+
+            <span>
+                {{ log.time }}
+            </span>
+
+            <strong>
+                {{ log.action }}
+            </strong>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+
+    <a href="{{ url_for('page1') }}"
+       class="restart-button">
+
+        Start New Session
+
+    </a>
+
+</div>
+
+{% endblock %}

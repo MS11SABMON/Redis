@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Redis Form System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="background-shape shape-one"></div>
+    <div class="background-shape shape-two"></div>
+    <div class="background-shape shape-three"></div>
+
+    <div class="container">
+
+        <header>
+
+            <div class="logo">
+                Redis<span>Form</span>
+            </div>
+
+            {% if ttl is defined and ttl > 0 %}
+
+            <div class="timer">
+
+                Session expires in:
+
+                <strong id="timer">
+                    05:00
+                </strong>
+
+            </div>
+
+            {% endif %}
+
+        </header>
+
+
+        {% if page is defined %}
+
+        <div class="progress-container">
+
+            <div class="progress-step
+                {% if page >= 1 %}active{% endif %}">
+                1
+            </div>
+
+            <div class="progress-line
+                {% if page >= 2 %}active{% endif %}">
+            </div>
+
+            <div class="progress-step
+                {% if page >= 2 %}active{% endif %}">
+                2
+            </div>
+
+            <div class="progress-line
+                {% if page >= 3 %}active{% endif %}">
+            </div>
+
+            <div class="progress-step
+                {% if page >= 3 %}active{% endif %}">
+                3
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        <main>
+
+            {% block content %}
+
+            {% endblock %}
+
+        </main>
+
+    </div>
+
+
+    {% if ttl is defined and ttl > 0 %}
+
+    <script>
+
+        let remainingSeconds = {{ ttl }};
+
+        const timerElement =
+            document.getElementById("timer");
+
+
+        function updateTimer() {
+
+            let minutes =
+                Math.floor(remainingSeconds / 60);
+
+            let seconds =
+                remainingSeconds % 60;
+
+
+            minutes =
+                String(minutes).padStart(2, "0");
+
+            seconds =
+                String(seconds).padStart(2, "0");
+
+
+            timerElement.textContent =
+                minutes + ":" + seconds;
+
+
+            if (remainingSeconds <= 0) {
+
+                window.location.href =
+                    "{{ url_for('expired') }}";
+
+                return;
+            }
+
+
+            remainingSeconds--;
+
+        }
+
+
+        updateTimer();
+
+        setInterval(updateTimer, 1000);
+
+    </script>
+
+    {% endif %}
+
+</body>
+
+</html>
